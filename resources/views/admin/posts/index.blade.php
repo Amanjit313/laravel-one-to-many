@@ -14,7 +14,7 @@
             <th class="col-3">NAME</th>
             <th class="col-3">LOCATION</th>
             <th class="col-3">EMAIL</th>
-            <th class="col-3"></th>
+            <th class="col-3">ACTION</th>
         </tr>
     </thead>
     <tbody>
@@ -32,9 +32,9 @@
             <td>
                 <p>{{ $post->email }}</p>
             </td>
-            <td>
-                <a class="btn btn-success" href="{{ route('admin.posts.show', $post) }}">SHOW</a>
-                <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post) }}">EDIT</a>
+            <td class="d-flex">
+                <a class="btn btn-success mr-2" href="{{ route('admin.posts.show', $post) }}">SHOW</a>
+                <a class="btn btn-primary mr-2" href="{{ route('admin.posts.edit', $post) }}">EDIT</a>
 
                 <form action="{{ route('admin.posts.destroy', $post) }}"
                       method="POST"
