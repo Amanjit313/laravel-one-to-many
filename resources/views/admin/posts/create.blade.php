@@ -33,7 +33,7 @@
     <br>
     <div class="col-3">
         <label for="category" class="form-label">Category</label>
-        <select class="form-select @error('location') is-invalid @enderror"
+        <select class="form-select @error('category_id') is-invalid @enderror"
                 aria-label="Default select example"
                 name="category_id"
                 id="category">

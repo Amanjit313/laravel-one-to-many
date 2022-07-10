@@ -31,6 +31,24 @@
             @enderror
     </div>
 
+    <br>
+    <div class="col-3">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select @error('category_id') is-invalid @enderror"
+                aria-label="Default select example"
+                name="category_id"
+                id="category">
+                <option>Select the category</option>
+                @foreach ($categories as $category)
+                <option value="{{$category->id}}" @if ( old('category_id', $post->category_id) == $category->id) selected @endif>{{ $category->name }}</option>
+                @endforeach
+        </select>
+        @error('category_id')
+            <p class="error-msg text-danger">{{ $message }}</p>
+        @enderror
+    </div>
+    <br>
+
     <div class="col-3">
       <label for="location" class="form-label">Location</label>
       <input type="text" id="location"
