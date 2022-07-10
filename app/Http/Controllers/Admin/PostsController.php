@@ -48,7 +48,7 @@ class PostsController extends Controller
 
         $new_post = new Post();
 
-        $data['slug'] = Str::slug($data['name'], '-');
+        $data['slug'] = Post::generatoreSlug($data['name']);
 
         $new_post->fill($data);
 
@@ -97,7 +97,7 @@ class PostsController extends Controller
 
         $data = $request->all();
 
-        $data['slug'] = Str::slug($data['name'], '-');
+        $data['slug'] = Post::generatoreSlug($data['name']);
 
         $post->update($data);
 
