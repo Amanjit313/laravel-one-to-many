@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 use Illuminate\Support\Str;
 
 class PostsController extends Controller
@@ -27,7 +28,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -117,8 +119,9 @@ class PostsController extends Controller
     private function rulesValidate(){
         return[
             'name' => 'required|max:50|min:3',
+            'category_id' => 'required|numeric',
             'location' => 'required|max:50|min:2',
-            'email' => 'required|max:50|min:5',
+            'email' => 'required|max:50|min:5'
         ];
     }
 
@@ -127,6 +130,7 @@ class PostsController extends Controller
             'name.required' => 'Questo campo è obbligatorio',
             'name.max' => 'Questo campo non può superare i :max caratteri',
             'name.min' => 'Questo campo non può essere inferiore ai :min caratteri',
+            'category_id.numeric' => 'Questo campo è obbligatorio',
             'location.required' => 'Questo campo è obbligatorio',
             'location.max' => 'Questo campo non può superare i :max caratteri',
             'location.min' => 'Questo campo non può essere inferiore ai :min caratteri',
