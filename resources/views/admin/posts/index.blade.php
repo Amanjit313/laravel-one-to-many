@@ -10,11 +10,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th class="col-1">ID</th>
-            <th class="col-3">NAME</th>
-            <th class="col-3">LOCATION</th>
-            <th class="col-3">EMAIL</th>
-            <th class="col-3">ACTION</th>
+            <th class="col-2">ID</th>
+            <th class="col-2">NAME</th>
+            <th class="col-2">CATEGORIES</th>
+            <th class="col-2">LOCATION</th>
+            <th class="col-2">EMAIL</th>
+            <th class="col-2">ACTION</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,9 @@
             </th>
             <td>
                 <p>{{ $post->name }}</p>
+            </td>
+            <td>
+                <p>{{ $post->category->name }}</p>
             </td>
             <td>
                 <p>{{ $post->location }}</p>
